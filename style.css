@@ -1,70 +1,179 @@
-body {
-    font-family: Arial, sans-serif;
+/* Base styles (unchanged colors) */
+* {
     margin: 0;
     padding: 0;
-    background: #f4f4f4;
+    box-sizing: border-box;
   }
   
-  header {
-    background-color: #003366;
-    color: #fff;
-    padding: 1rem;
-    text-align: center;
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f3f3f3;
+    color: #333;
+  }
+  
+  .top-header {
+    background-color: white;
+    padding: 10px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .main-logo {
+    height: 60px;
+  }
+  
+  .contact-box {
+    text-align: right;
+    font-size: 14px;
   }
   
   main {
-    padding: 2rem;
-    max-width: 600px;
-    margin: auto;
-  }
-  
-  .card {
-    background: white;
-    padding: 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    margin-bottom: 1.5rem;
-  }
-  
-  .card form {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
   }
   
-  .card input {
-    padding: 0.5rem;
-    margin-top: 0.5rem;
-    margin-bottom: 1rem;
+  .result-card {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    max-width: 500px;
+    width: 100%;
   }
   
-  .card button {
-    background-color: #006699;
-    color: white;
-    padding: 0.6rem;
+  .result-card h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 18px;
+  }
+  
+  .logo-small {
+    height: 50px;
+    display: block;
+    margin: 0 auto 10px;
+  }
+  
+  form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 15px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .error-text {
+    color: red;
+    font-size: 13px;
+    margin-bottom: 10px;
+    display: none;
+  }
+  
+  .captcha-section {
+    margin-bottom: 10px;
+  }
+  
+  .captcha-img {
+    height: 50px;
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  .button-group {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+  }
+  
+  button {
+    flex: 1;
+    padding: 10px;
+    font-size: 15px;
     border: none;
-    border-radius: 4px;
+    border-radius: 5px;
     cursor: pointer;
   }
   
-  .links ul {
-    list-style-type: none;
-    padding: 0;
+  .submit-btn {
+    background-color: #007bff;
+    color: white;
   }
   
-  .links li {
-    margin: 0.5rem 0;
-  }
-  
-  .links a {
-    color: #003366;
-    text-decoration: none;
+  .reset-btn {
+    background-color: #ddd;
+    color: black;
   }
   
   footer {
-    background-color: #003366;
+    background-color: black;
     color: white;
     text-align: center;
-    padding: 1rem;
-    margin-top: 2rem;
+    padding: 15px 10px;
+    font-size: 14px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+  }
+  
+  .footer-links {
+    margin-top: 5px;
+  }
+  
+  .footer-links a {
+    color: white;
+    margin: 0 5px;
+    text-decoration: underline;
+  }
+  
+  .home-icon {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  
+  /* ✅ Responsive adjustments only */
+  @media (max-width: 600px) {
+    .top-header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .contact-box {
+      text-align: left;
+      margin-top: 10px;
+    }
+  
+    .button-group {
+      flex-direction: column;
+    }
+  
+    .main-logo {
+      height: 50px;
+    }
+  
+    .result-card {
+      padding: 15px;
+    }
+  
+    input[type="text"] {
+      font-size: 14px;
+    }
+  
+    button {
+      font-size: 14px;
+    }
   }
   

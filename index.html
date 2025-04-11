@@ -2,38 +2,97 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NIOS Results (Replica)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NIOS Academic Exam Result</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header>
-    <h1>NIOS Results Portal (Replica)</h1>
+
+  <header class="top-header">
+    <img src="title.png" alt="NIOS Logo" class="main-logo" />
+    <div class="contact-box">
+      <p>For any technical query contact on</p>
+      <p>📧 <a href="mailto:lsc@nios.ac.in">lsc@nios.ac.in</a></p>
+      <p>📞 Toll Free: 1800-180-9393</p>
+    </div>
   </header>
 
   <main>
-    <section class="card">
-      <h2>Check Result</h2>
-      <form>
-        <label for="roll">Enter Enrollment Number:</label>
-        <input type="text" id="roll" placeholder="1234567890" />
-        <button type="submit">Submit</button>
-      </form>
-    </section>
+    <div class="result-card">
+      <img src="title.png" alt="NIOS Logo" class="logo-small" />
+      <h2>ACADEMIC EXAMINATION RESULT</h2>
 
-    <section class="links">
-      <h3>Other Result Links</h3>
-      <ul>
-        <li><a href="#">Public Exam Results</a></li>
-        <li><a href="#">On-Demand Exam Results</a></li>
-        <li><a href="#">Vocational Courses</a></li>
-        <li><a href="#">Marksheets & Certificates</a></li>
-      </ul>
-    </section>
+      <form id="resultForm">
+        <label for="enroll">Enrollment Number</label>
+        <input type="text" id="enroll" maxlength="12" />
+        <span class="error-text" id="errorText">Roll Number cannot be blank.</span>
+
+        <div class="captcha-section">
+          <img src="captcha.png" alt="Captcha" class="captcha-img" />
+        </div>
+
+        <input type="text" id="captchaInput" placeholder="Enter Captcha: mIp3Xmk" />
+        <p>Enter your enrollment number and captcha to view the result</p>
+
+        <div class="button-group">
+          <button type="submit" class="submit-btn">Submit</button>
+          <button type="button" class="reset-btn" onclick="resetForm()">Reset</button>
+        </div>
+      </form>
+    </div>
   </main>
 
   <footer>
-    <p>This is a replica created for educational purposes.</p>
+    <p>© 2018 The National Institute of Open Schooling. All Rights Reserved.</p>
+    <div class="footer-links">
+      <a href="#">Disclaimer</a> | 
+      <a href="#">Sitemap</a> | 
+      <a href="#">Login</a> | 
+      <a href="#">Contact us</a>
+    </div>
   </footer>
+
+  <div class="home-icon">🏠</div>
+
+  <script>
+    window.onload = function () {
+      const enrollInput = document.getElementById('enroll');
+      const captchaInput = document.getElementById('captchaInput');
+      const errorText = document.getElementById('errorText');
+      const resultForm = document.getElementById('resultForm');
+
+      function validateInput() {
+        if (enrollInput.value.length === 12) {
+          errorText.style.display = 'none';
+        } else {
+          errorText.style.display = 'block';
+        }
+      }
+
+      enrollInput.addEventListener('input', validateInput);
+      validateInput(); // Initial check
+
+      window.resetForm = function () {
+        enrollInput.value = "";
+        captchaInput.value = "";
+        errorText.style.display = 'block';
+      }
+
+      resultForm.addEventListener('submit', function (e) {
+        e.preventDefault(); // Prevent default form submission
+
+        const roll = enrollInput.value.trim();
+        const captcha = captchaInput.value.trim();
+
+        if (roll === "180519183001" && captcha === "mIp3Xmk") {
+          window.location.href = "result.html";
+        } else if (roll === "210519183001" && captcha === "mIp3Xmk") {
+          window.location.href = "result2.html";
+        } else {
+          alert("Invalid enrollment number or captcha.");
+        }
+      });
+    };
+  </script>
 </body>
 </html>
